@@ -1,0 +1,213 @@
+/* ======== ESTILO GERAL ======== */
+body {
+  background: #f4f5f7;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* ======== TOPO ======== */
+.topo {
+  background: linear-gradient(135deg, #e49682e5, #fac3d1);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.topo h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.btnVoltar {
+  position: absolute;
+  right: 20px;
+  top: 75px;
+  background: white;
+  color: #fac3d1;
+  padding: 8px 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.btnVoltar:hover {
+  background: #eee;
+}
+
+/* ======== CONTAINER ======== */
+.painel-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* ======== TÍTULOS ======== */
+.painel-container h2 {
+  margin-top: 40px;
+  font-size: 22px;
+  color: #fac3d1;
+  border-left: 6px solid #e49682e5;
+  padding-left: 10px;
+}
+
+/* ======== FORMULÁRIO ======== */
+form {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  font-size: 15px;
+  transition: .2s;
+}
+
+input:focus, select:focus {
+  border-color: #6b4eff;
+  outline: none;
+}
+
+.tamanhos-box {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ======== BOTÃO PRINCIPAL ======== */
+.btn {
+  background: #fac3d1;
+  color: white;
+  border: none;
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: #fac3d1;
+}
+
+/* ======== LISTA DE PRODUTOS ADM ======== */
+.lista-produtos {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* ======== CARD ADMIN ======== */
+.card-admin {
+  position: relative;
+  background: white;
+  padding: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  transition: transform .2s ease;
+}
+
+.card-admin:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.card-admin img {
+ width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+/* ======== BOTÕES EDITAR / EXCLUIR ======== */
+.btn-edit, .btn-del {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.btn-edit {
+  background: #4bb543;
+  color: white;
+}
+
+.btn-edit:hover {
+  background: #3d9438;
+}
+
+.btn-del {
+  background: #ff4d4d;
+  color: white;
+}
+
+.btn-del:hover {
+  background: #d63b3b;
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 600px) {
+  .topo h1 {
+    font-size: 22px;
+  }
+  .btnVoltar {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+.card-produto {
+  position: relative;
+  background: white;
+  padding: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  transition: transform .2s ease;
+}
+
+.tag-desconto {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #d66b6b;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.preco-antigo {
+  text-decoration: line-through;
+  color: #777;
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+}
+
+.preco-final {
+  color: #1c1c1c;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: -2px;
+}
+

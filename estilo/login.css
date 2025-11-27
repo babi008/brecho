@@ -1,0 +1,55 @@
+body {
+  background: #f8f8f8;
+  font-family: "Poppins", Arial;
+}
+
+.login-container {
+  margin-top: 50px;
+}
+
+.login-card {
+  background: #fff;
+  max-width: 400px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px #0002;
+}
+
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.login-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  background: #c9184a;
+  color: white;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.secundario {
+  background: #555;
+}
+
+.status {
+  margin-top: 10px;
+  color: #c9184a;
+  text-align: center;
+}

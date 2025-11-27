@@ -1,0 +1,369 @@
+/* ==========================
+   CONFIGURAÇÕES GERAIS
+   ========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #faf6f2;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #5a4a42;
+}
+
+/* ==========================
+   TOPO / MENU
+   ========================== */
+
+.topo {
+  background: #ffffff;
+  border-bottom: 2px solid #e7dbc9;
+  padding: 18px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topo h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #7a5a3a; /* tom vintage */
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #7a5a3a;
+  margin-left: 20px;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #5a3d26;
+  text-decoration: underline;
+}
+
+/* ==========================
+   BANNER
+   ========================== */
+
+.banner {
+  background: linear-gradient(to right, #f7ece6, #f9f3ef);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.banner h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #a86b6b;
+}
+
+.banner p {
+  font-size: 18px;
+  color: #6d6d6d;
+  margin-top: 10px;
+}
+
+.secao {
+  padding: 40px 20px;
+}
+
+.secao-titulo {
+  font-size: 1.5rem;
+  color: #6e4b2f;
+  margin-bottom: 20px;
+  border-left: 6px solid #d6b89c;
+  padding-left: 10px;
+}
+
+
+/* ================================
+   GRID DAS SEÇÕES
+==================================*/
+#galeriaProdutos,
+#listaAchadinhos,
+#listaNovidades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 25px 10px;
+}
+
+/* ==========================
+   GRID DE PRODUTOS
+   ========================== */
+
+.produtos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+/* ==========================
+   CARD DO PRODUTO
+   ========================== */
+
+.produto-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e7dcd5;
+  box-shadow: 0px 4px 10px rgba(200, 180, 160, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.produto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 18px rgba(180, 150, 130, 0.3);
+}
+
+.produto-card img {
+   width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+/* TITULO DO PRODUTO */
+.produto-card h3 {
+  font-size: 18px;
+  margin: 12px 0 5px;
+  font-weight: 600;
+  color: #4b3c32;
+}
+
+/* PREÇO */
+.produto-card .preco {
+  font-size: 14px;
+  color: #7d6a5c;
+  margin-bottom: 8px;
+}
+
+
+/* ESTADO */
+.produto-card .estado {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+/* BOTÃO RESERVAR */
+.btnComprar {
+  background: #c47b7b;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btnComprar:hover {
+  background: #a76666;
+}
+
+/* ==========================
+   BOTÃO WHATSAPP
+   ========================== */
+
+.area-envio {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  transition: 0.2s;
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe5a;
+}
+
+.icon-wpp {
+  width: 26px;
+}
+
+/* ==========================
+   RESPONSIVIDADE
+   ========================== */
+
+@media (max-width: 480px) {
+  .banner h2 {
+    font-size: 24px;
+  }
+
+  .produto-card img {
+    height: 220px;
+  }
+}
+
+/* 🔥 FORÇA O CARROSSEL A FUNCIONAR */
+.carrossel-container {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 15px;
+  overflow-x: auto !important;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 10px 5px;
+  white-space: nowrap !important;
+}
+
+.carrossel-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carrossel-container::-webkit-scrollbar-thumb {
+  background: #c7a4a4;
+  border-radius: 10px;
+}
+
+
+/* 🔥 GARANTE QUE OS CARDS NÃO QUEBREM LINHA */
+.produto-card {
+  position: relative;
+  background: white;
+  padding: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  transition: transform .2s ease;
+}
+.card-produto:hover {
+  transform: translateY(-4px);
+}
+
+
+/* 🔥 GARANTE QUE AS IMAGENS NÃO EXPANDAM */
+.produto-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+.precos {
+  margin: 8px 0;
+}
+
+.preco-normal {
+  font-size: 20px;
+  font-weight: bold;
+  color: #e58e8e;
+}
+
+.preco-antigo {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 14px;
+}
+
+.preco-promo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #d9534f;
+}
+
+.tag-desconto {
+  background: #d9534f;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.tamanhos {
+  font-size: 14px;
+  color: #555;
+}
+
+.estoque {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #777;
+}
+
+/* Seção Sobre */
+.sobre-brecho {
+  padding: 50px 20px;
+  background: #faf7f2;
+  margin-top: 40px;
+}
+
+.sobre-brecho .sec-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #3b2f2f;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.cards-sobre {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  background-size: cover;
+}
+
+.cards-sobre .card {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.5); /* 50% transparente */
+  padding: 20px;
+  width: 300px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform .2s ease, box-shadow .2s ease, background .3s;
+}
+
+.cards-sobre .card:hover {
+  background: rgba(255, 255, 255, 0.65); /* levemente mais visível */
+  transform: translateY(-4px);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.18);
+}
+
+
+.cards-sobre .card h3 {
+  margin-bottom: 10px;
+  color: #5a4a42;
+  font-size: 1.3rem;
+}
+
+.cards-sobre .card p {
+  font-size: 0.95rem;
+  color: #5f524c;
+  line-height: 1.5;
+}

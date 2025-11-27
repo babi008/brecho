@@ -1,0 +1,140 @@
+/* =======================================
+   ESTILO — SIMULADOR DE PREÇOS
+   ======================================= */
+
+.simulador-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  margin-top: 20px;
+}
+
+/* Título e texto */
+.simulador-container h2,
+.simulador-container h3 {
+  margin-top: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  color: #444;
+}
+
+/* Select do produto */
+#produtoSelect {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  background: #fafafa;
+  transition: border 0.2s;
+}
+
+#produtoSelect:focus {
+  border-color: #7aa7ef;
+  outline: none;
+}
+
+/* Botões */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background:#4bb543; 
+  color: white;
+  margin: 10px 0;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #358130;
+}
+
+/* Botão limpar */
+.limpar {
+  background: #ff5c5c;
+}
+
+.limpar:hover {
+  background: #d94444;
+}
+
+/* Itens adicionados */
+.lista-itens {
+  margin-top: 20px;
+}
+
+.item-simulador {
+  background: #f8f9fb;
+  border: 1px solid #e6e6e6;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.25s ease;
+}
+
+.item-simulador p {
+  margin: 0;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Remover item */
+.btnExcluir {
+  background: #ff4d6d;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btnExcluir:hover {
+  background: #d63b59;
+}
+
+/* Totais */
+#totalCompra,
+#totalEconomia {
+  font-weight: 700;
+  color: #333;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .simulador-container {
+    padding: 18px;
+  }
+  .item-simulador {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn {
+    font-size: 0.95rem;
+  }
+}

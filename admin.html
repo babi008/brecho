@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo</title>
+  <link rel="stylesheet" href="estilo/admin.css">
+</head>
+<body>
+
+  <header class="topo">
+    <h1>Painel do Administrador</h1>
+    <a href="brecho.html" class="btnVoltar">Ver Loja</a>
+  </header>
+
+  <main class="painel-container">
+
+    <h2>Cadastrar Produto</h2>
+
+    <form id="formProduto">
+
+      <!-- Tipo da peça -->
+      <label for="tipoPeca">Tipo da peça</label>
+      <select id="tipoPeca">
+        <option value="Blusa">Blusa</option>
+        <option value="Vestido">Vestido</option>
+        <option value="Calcas">Calça</option>
+        <option value="Conjunto">Conjunto</option>
+        <option value="Shorts">Short</option>
+        <option value="Acessorios">Acessório</option>
+        <option value="Calcados">Calçado</option>
+        <option value="Bolsas">Bolsa</option>
+        <option value="Infantil">Infantil</option>
+      </select>
+
+      <!-- Estado da peça -->
+      <label>Estado da peça</label>
+      <select id="estadoPeca">
+        <option value="novo">Novo</option>
+        <option value="semi-novo">Semi-novo</option>
+        <option value="usado-leve">Usado</option>
+      </select>
+
+      <!-- Faixa de preço automática -->
+      <label>Preço (R$)</label>
+      <input type="number" id="precoProduto" required step="0.01">
+
+      <label>Promoção (%)</label>
+      <input type="number" id="promocao" placeholder="Porcentagem de desconto">
+
+
+      <!-- Seção da loja -->
+     <label>Seção na loja</label>
+      <div class="secoes-box">
+       <label><input type="checkbox" name="secao" value="achadinhos"> Achadinhos do Dia</label>
+       <label><input type="checkbox" name="secao" value="novidades"> Novidades</label>
+       <label><input type="checkbox" name="secao" value="todos"> Todos os Produtos</label>
+      </div>
+
+
+
+      <!-- Tamanhos disponíveis -->
+      <label>Tamanhos disponíveis:</label>
+      <div class="tamanhos-box">
+        <label><input type="checkbox" name="tam" value="PP"> PP</label>
+        <label><input type="checkbox" name="tam" value="P"> P</label>
+        <label><input type="checkbox" name="tam" value="M"> M</label>
+        <label><input type="checkbox" name="tam" value="G"> G</label>
+        <label><input type="checkbox" name="tam" value="GG"> GG</label>
+        <label><input type="checkbox" name="tam" value="Plus Size"> Plus Size</label>
+      </div>
+
+      <label>Imagem do Produto</label>
+        <input type="file" id="fotoProduto" accept="image/*">
+
+      <button type="submit" class="btn">Salvar Produto</button>
+      </form>
+
+      
+      <h2>Produtos Cadastrados</h2>
+      <div id="listaProdutos" class="lista-produtos"></div>
+
+
+  </main>
+
+  <!-- ORDEM CORRETA DOS MÓDULOS -->
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/admin.js"></script>
+
+
+
+</body>
+</html>
+
+

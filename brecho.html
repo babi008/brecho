@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brechó Fashion</title>
+
+  <!-- CSS do brechó -->
+  <link rel="stylesheet" href="estilo/brecho.css">
+
+  <!-- Fonte suave e moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- MENU SUPERIOR -->
+  <header class="topo">
+    <h1>Brechó Fashion</h1>
+
+    <nav class="menu">
+      <a href="brecho.html">Início</a>
+      <a href="login.html">Admin</a>
+    </nav>
+  </header>
+
+
+  <!-- BANNER -->
+  <section class="banner">
+    <h2>Peças únicas • Garimpe seu estilo</h2>
+    <p>Moda sustentável, barata e com personalidade.</p>
+  </section>
+
+  <section class="sobre-brecho">
+  
+
+  <div class="cards-sobre">
+
+    <!-- Card 1 — Sobre -->
+    <div class="card">
+      <h3>✨ Sobre o Brechó</h3>
+      <p>
+        Nosso brechó nasceu com a ideia de trazer peças únicas, selecionadas com carinho,
+      priorizando qualidade, estilo e preço justo. Aqui cada peça tem uma história e
+      cuidamos para que sua nova dona encontre algo especial. ✨
+      </p>
+    </div>
+
+    <!-- Card 2 — Localização -->
+    <div class="card">
+      <h3>📍 Localização</h3>
+      <p>
+        Estamos localizados em <strong>Capanema/PA</strong>
+        na rua Sebastião de freitas no Bairro São Pio X
+      </p>
+    </div>
+
+    <!-- Card 3 — Contato -->
+    <div class="card">
+      <h3>📞 Contato</h3>
+      <p>
+        Qualquer duvida só reservar seu look e clicar no botão que temos logo abaixo para falar com nosco no nosso WhatsApp😉👇
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- ⭐ CARROSSEL ACHADINHOS -->
+<section class="secao">
+  <h2 class="secao-titulo" >✨Achadinhos</h2>
+
+  <div class="carrossel">
+    <button class="btn-scroll left" onclick="scrollLeft('listaAchadinhos')">❮</button>
+
+    <div id="listaAchadinhos" class="carrossel-container"></div>
+
+    <button class="btn-scroll right" onclick="scrollRight('listaAchadinhos')">❯</button>
+  </div>
+</section>
+
+
+<!-- ⭐ CARROSSEL NOVIDADES -->
+<section class="secao">
+  <h2 class="secao-titulo">💫Novidades</h2>
+
+  <div class="carrossel">
+    <button class="btn-scroll left" onclick="scrollLeft('listaNovidades')">❮</button>
+
+    <div id="listaNovidades" class="carrossel-container"></div>
+
+    <button class="btn-scroll right" onclick="scrollRight('listaNovidades')">❯</button>
+  </div>
+</section>
+
+
+
+  <!-- TODAS AS PEÇAS -->
+  <section class="secao">
+    <h2 class="secao-titulo">💛 Todas as Peças do Brechó</h2>
+    <div id="galeriaProdutos" class="produtos-grid"></div>
+  </section>
+
+  <!-- BOTÃO WHATSAPP -->
+  <div class="area-envio container">
+    <button id="btnEnviarWhatsapp" class="btn-whatsapp">
+      <img src="imgs/whats.svg" class="icon-wpp">
+      Reservar pelo WhatsApp
+    </button>
+  </div>
+
+  
+
+
+  <!-- Firebase + JS principal -->
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/brecho.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+

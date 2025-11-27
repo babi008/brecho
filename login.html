@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Administrador</title>
+  <link rel="stylesheet" href="estilo/login.css">
+  <link rel="stylesheet" href="estilo/global.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="login-card">
+      <h2>Acesso Administrativo</h2>
+
+      <label for="user">Usuário:</label>
+      <input id="user" type="text" >
+
+      <label for="senha">Senha:</label>
+      <input id="senha" type="password" >
+
+      <div class="login-actions">
+        <button id="btnLogin" class="btn">Entrar</button>
+        <a href="loja.html" class="btn secundario">Voltar</a>
+      </div>
+
+      <p id="loginStatus" class="status"></p>
+    </div>
+  </div>
+
+  <!-- JS correto -->
+  <script src="js/login.js"></script>
+
+</body>
+</html>
