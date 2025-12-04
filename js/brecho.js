@@ -45,6 +45,7 @@ function criarCard(produto) {
     <div class="produto-card" data-categoria="${categoriaNormalized}" data-id="${produto.id || ""}">
       <img src="${imagem}" alt="${tiposafe}">
       <h3>${tiposafe}</h3>
+    
 
       <div class="precos">
         ${promo > 0
@@ -56,9 +57,15 @@ function criarCard(produto) {
           : `<p class="preco-normal">R$ ${preco.toFixed(2)}</p>`
         }
       </div>
-
+      
       <p class="tamanhos"><strong>Tamanhos:</strong> ${tamanhos}</p>
       <p class="estoque">Estoque: peça única</p>
+      <p><strong>Estado:</strong> ${produto.estadoPeca}</p>
+
+
+
+    
+      
 
       <button class="btnComprar"
         onclick='adicionarSacola("${produto.id || ""}", "${tiposafe.replace(/"/g,"'")}", ${Number(precoFinal)})'>
@@ -140,7 +147,8 @@ async function carregarProdutos() {
       promocao: produto.promocao || 0,
       secoes: Array.isArray(produto.secoes) ? produto.secoes : (produto.secoes ? [produto.secoes] : []),
       tamanhos: Array.isArray(produto.tamanhos) ? produto.tamanhos : (produto.tamanhos ? [produto.tamanhos] : []),
-      imagem: produto.imagem || produto.imagemBase64 || produto.foto || null
+      imagem: produto.imagem || produto.imagemBase64 || produto.foto || null,
+      estadoPeca: produto.estadoPeca || "Não informado"
     };
 
     // renderiza

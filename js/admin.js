@@ -153,6 +153,3 @@ window.excluirProduto = async function (id) {
   carregarProdutos();
 };
 
-
-
-
