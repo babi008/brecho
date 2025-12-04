@@ -248,13 +248,12 @@ body {
 
 /* 🔥 GARANTE QUE OS CARDS NÃO QUEBREM LINHA */
 .produto-card {
-  position: relative;
-  background: white;
-  padding: 14px;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-  transition: transform .2s ease;
+    flex: 0 0 220px; /* <-- LARGURA FIXA */
+    background: #fff;
+    border-radius: 18px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    scroll-snap-align: start;
 }
 .card-produto:hover {
   transform: translateY(-4px);
