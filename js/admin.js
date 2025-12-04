@@ -10,21 +10,47 @@ import {
 const form = document.getElementById("formProduto");
 const lista = document.getElementById("listaProdutos");
 
-// ===============================
-// Converter imagem para Base64
-// ===============================
-function converterParaBase64(file) {
-  return new Promise((resolve, reject) => {
-    const leitor = new FileReader();
-    leitor.onload = () => resolve(leitor.result);
-    leitor.onerror = error => reject(error);
-    leitor.readAsDataURL(file);
+// =======================================
+// REDUZIR IMAGEM DO CELULAR
+// =======================================
+async function reduzirImagem(file, qualidade = 0.6) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    const img = new Image();
+
+    reader.onload = (e) => {
+      img.src = e.target.result;
+    };
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      const MAX_WIDTH = 900;
+      let width = img.width;
+      let height = img.height;
+
+      if (width > MAX_WIDTH) {
+        height *= MAX_WIDTH / width;
+        width = MAX_WIDTH;
+      }
+
+      canvas.width = width;
+      canvas.height = height;
+
+      ctx.drawImage(img, 0, 0, width, height);
+
+      const comprimida = canvas.toDataURL("image/jpeg", qualidade);
+      resolve(comprimida);
+    };
+
+    reader.readAsDataURL(file);
   });
 }
 
-// ===============================
+// =======================================
 // CADASTRAR PRODUTO
-// ===============================
+// =======================================
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -40,8 +66,9 @@ form.addEventListener("submit", async (e) => {
     const tamanhos = [...document.querySelectorAll('input[name="tam"]:checked')]
                     .map(t => t.value);
 
+    // IMAGEM COMPACTADA
     const arquivo = document.getElementById("fotoProduto").files[0];
-    const imagemBase64 = arquivo ? await converterParaBase64(arquivo) : null;
+    const imagemBase64 = arquivo ? await reduzirImagem(arquivo, 0.6) : null;
 
     await addDoc(collection(db, "produtos"), {
       tipoPeca,
@@ -65,9 +92,9 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
-// ===============================
+// =======================================
 // LISTAR PRODUTOS NO ADMIN
-// ===============================
+// =======================================
 async function carregarProdutos() {
   lista.innerHTML = "";
 
@@ -77,41 +104,34 @@ async function carregarProdutos() {
     const p = docSnap.data();
     const id = docSnap.id;
 
-    // Valores seguros (para evitar erro com produtos antigos)
-    const precoBase = Number(p.precoProduto) || 0;
-    const promo = Number(p.promocao) || 0;
-
-    const precoFinal = promo > 0
-      ? (precoBase * (1 - promo / 100)).toFixed(2)
-      : precoBase.toFixed(2);
-
-    const tamanhos = p.tamanhos ? p.tamanhos.join(", ") : "—";
-    const secoes = p.secoes ? p.secoes.join(", ") : "—";
+    const precoFinal = p.promocao > 0
+      ? (p.precoProduto * (1 - p.promocao / 100)).toFixed(2)
+      : p.precoProduto.toFixed(2);
 
     lista.innerHTML += `
       <div class="card-admin">
 
         <div class="img-wrapper">
           <img src="${p.imagem || 'imgs/no-image.png'}" class="miniatura">
-          ${promo > 0 ? `<span class="tag-promocao">-${promo}%</span>` : ""}
+          ${p.promocao > 0 ? `<span class="tag-promocao">-${p.promocao}%</span>` : ""}
         </div>
 
-        <h3>${p.tipoPeca || "Sem nome"}</h3>
+        <h3>${p.tipoPeca}</h3>
 
-        <p><strong>Estado:</strong> ${p.estadoPeca || "—"}</p>
+        <p><strong>Estado:</strong> ${p.estadoPeca}</p>
 
         ${
-          promo > 0
+          p.promocao > 0
           ? `<p class="preco">
-               <span class="preco-antigo">R$ ${precoBase.toFixed(2)}</span>
+               <span class="preco-antigo">R$ ${p.precoProduto.toFixed(2)}</span>
                <span class="preco-final">R$ ${precoFinal}</span>
              </p>`
-          : `<p class="preco-final">R$ ${precoBase.toFixed(2)}</p>`
+          : `<p class="preco-final">R$ ${p.precoProduto.toFixed(2)}</p>`
         }
 
-        <p><strong>Tamanhos:</strong> ${tamanhos}</p>
-        <p><strong>Seções:</strong> ${secoes}</p>
-        <p><strong>Estoque:</strong> ${p.estoque || "Peça única"}</p>
+        <p><strong>Tamanhos:</strong> ${p.tamanhos.join(", ")}</p>
+        <p><strong>Seções:</strong> ${p.secoes.join(", ")}</p>
+        <p><strong>Estoque:</strong> ${p.estoque}</p>
 
         <button class="btn-del" onclick="excluirProduto('${id}')">Excluir</button>
       </div>
@@ -121,9 +141,9 @@ async function carregarProdutos() {
 
 carregarProdutos();
 
-// ===============================
+// =======================================
 // EXCLUIR PRODUTO
-// ===============================
+// =======================================
 window.excluirProduto = async function (id) {
   if (!confirm("Tem certeza que deseja excluir este produto?")) return;
 
@@ -132,6 +152,7 @@ window.excluirProduto = async function (id) {
   alert("Produto removido!");
   carregarProdutos();
 };
+
 
 
 
